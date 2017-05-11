@@ -1,0 +1,6 @@
+[submodule "ipset-blacklist"]
+	path = ipset-blacklist
+	url = https://github.com/trick77/ipset-blacklist.git
+[submodule "fail2banarena"]
+	path = fail2banarena
+	url = https://github.com/nicolargo/fail2banarena.git
