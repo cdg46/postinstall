@@ -60,3 +60,10 @@ sudo ipset restore < /etc/ipset-blacklist/ip-blacklist.restore
 sudo iptables -I INPUT 1 -m set --match-set blacklist src -j DROP
 
 sudo echo "33 23 * * *      root /usr/local/sbin/update-blacklist.sh /etc/ipset-blacklist/ipset-blacklist.conf" > /etc/cron.d/update-blacklist
+
+# fail2ban TYPO3 8+
+sudo cp $PWD/typo3-8/filter.d/apache-typo3.conf /etc/fail2ban/filter.d/apache-typo3.conf
+sudo cat $PWD/typo3-8/jail.local >> /etc/fail2ban/jail.local
+
+# reload fail2ban
+sudo service fail2ban reload

@@ -1,0 +1,8 @@
+[apache-typo3]
+enabled  = true
+port     = http,https
+filter   = apache-typo3
+protocol = tcp
+logpath  = /var/log/apache*/*access.log
+maxretry = 7
+findtime = 60
