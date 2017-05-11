@@ -31,7 +31,7 @@ function checkDependency() {
 date
 
 echo -n "Checking dependencies..."
-checkDependency "fail2ban"
+checkDependency "fail2ban-client"
 checkDependency "ipset"
 checkDependency "shorewall"
 echo "Succeeded."
@@ -55,6 +55,7 @@ sudo cp $PWD/shorewall-wrapper/shorewall-drop-wrapper.sh /usr/local/sbin/shorewa
 sudo mkdir /etc/ipset-blacklist
 sudo cp $PWD/ipset-blacklist/ipset-blacklist.conf /etc/ipset-blacklist/ipset-blacklist.conf
 sudo cp $PWD/ipset-blacklist/update-blacklist.sh /usr/local/sbin/update-blacklist.sh
+sudo /usr/local/sbin/update-blacklist.sh /etc/ipset-blacklist/ipset-blacklist.conf
 sudo ipset restore < /etc/ipset-blacklist/ip-blacklist.restore
 sudo iptables -I INPUT 1 -m set --match-set blacklist src -j DROP
 
